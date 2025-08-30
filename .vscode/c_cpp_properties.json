@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\Users\\valen\\Downloads\\tcc-0.9.24-win32-bin\\tcc\\tcc.exe"
+        }
+    ],
+    "version": 4
+}
