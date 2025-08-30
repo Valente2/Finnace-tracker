@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-
+//This is only for calcutastions, not for tracking thast would be in tracker.c 
 
 
 int main(int argc, char *argv[]) {
@@ -42,6 +42,25 @@ int main(int argc, char *argv[]) {
         double months = years * 12.0;
         double payment = (principal * monthly_rate) / (1 - pow(1 + monthly_rate, -months));
         printf("Your monthly bond payment is: %.2f\n", payment);
+        return 0;
+    }
+    if(strcmp(argv[1], "-mortgage") == 0) {
+        if(argc != 6) {
+            printf("Not enough arguments for mortgage calculation\n");
+            return 1;
+        }
+        double house_price = atof(argv[2]);
+        double down_payment = atof(argv[3]);
+        double annual_rate = atof(argv[4]) / 100.0;
+        double years = atof(argv[5]);
+        double principal = house_price - down_payment;
+        double monthly_rate = annual_rate / 12.0;
+        double months = years * 12.0;
+        double payment = (principal * monthly_rate) / (1 - pow(1 + monthly_rate, -months));
+        printf("Your monthly mortgage payment is: %.2f\n", payment);
+        if(down_payment < house_price * 0.2) {
+            printf("Warning: Your down payment is less than 20%% of the house price. You may need to pay for private mortgage insurance (PMI).\n");
+        }
         return 0;
     }
 }
