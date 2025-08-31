@@ -62,5 +62,24 @@ int main(int argc, char *argv[]) {
             printf("Warning: Your down payment is less than 20%% of the house price. You may need to pay for private mortgage insurance (PMI).\n");
         }
         return 0;
+
+    }
+    if(strcmp(argv[1], "-loan") == 0 ){
+        if(argc != 5) {
+            printf("Not enough arguments for loan calculation\n");
+            return 1;
+        }
+        double loan_amount = atof(argv[2]);
+        double annual_rate = atof(argv[3]) / 100.0;
+        double years = atof(argv[4]);
+        double monthly_rate = annual_rate / 12.0;
+        double months = years * 12.0;
+        double payment = (loan_amount * monthly_rate) / (1 - pow(1 + monthly_rate, -months));
+        printf("Your monthly loan payment is: %.2f\n", payment);
+        return 0;
+    } 
+    else {
+        printf("Unknown calculation type. Please use -debt, -bond, -mortgage, or -loan.\n");
+        return 1;
     }
 }
