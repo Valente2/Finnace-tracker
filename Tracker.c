@@ -6,6 +6,7 @@
 #define flagfile "fiist_run.flag"
 
 int main(){
+
     FILE *fp;
     
     fp = fopen(flagfile, "r");
@@ -18,4 +19,5 @@ int main(){
         printf("Welcome back!\n");
         fclose(fp);
     }
+
 }
